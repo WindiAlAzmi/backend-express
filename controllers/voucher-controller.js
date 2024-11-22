@@ -1,9 +1,11 @@
+const mongoose = require("mongoose");
 const Voucher = require("../models/Voucher");
+const Brand = require("../models/Brand");
 
 module.exports = {
   getAllVoucher: async (req, res) => {
     try {
-      const data = await Voucher.find({});
+      const data = await Voucher.find({}).populate('brandId').exec();
 
       if (data?.length <= 0) {
         return res.status(200).json({
@@ -47,7 +49,7 @@ module.exports = {
   getVoucherById: async (req, res) => {
     try {
       const { id } = req.params;
-      const getDataById = await Voucher.findById(id).exec();
+      const getDataById = await Voucher.findById(id).populate('brandId').exec();
 
       if (!getDataById) {
         return res.status(404).json({
@@ -59,6 +61,7 @@ module.exports = {
         message: "data berhasil ditemukkan",
         data: getDataById,
       });
+
     } catch (err) {
       return res.status(500).json({
         message: "Terjadi kesalahan",
@@ -70,6 +73,20 @@ module.exports = {
     try {
       const data = req.body;
 
+      //check if is there that brand on db ? 
+      if(!mongoose.Types.ObjectId.isValid(data.brandId)){
+        return res.status(400).json({
+          message: "Invalid Id brand",
+        });
+      }
+
+      const isBrand = await Brand.findById(data.brandId).exec();
+      if(isBrand === null){
+         return res.status(403).json({
+           message: "data brand belum dimasukkan",
+         });
+      }
+      
       const newData = new Voucher(data);
 
       await newData.save();

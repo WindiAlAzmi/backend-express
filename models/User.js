@@ -19,6 +19,10 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: [true, "nama harus diisi"],
   },
+  points : {
+    type:String,
+    default:0
+  },
   createdAt: {
     type: Date,
     default: Date.now,
