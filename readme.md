@@ -35,6 +35,7 @@ link : https://app.eraser.io/workspace/ifQtfTojjLpuKxnTP5cm?origin=share
     - [Create VOUCHER](#create-voucher)
     - [Get VOUCHER List](#get-all-voucher)
     - [Get Single VOUCHER](#get-single-voucher)
+    - [Get VOUCHER by BrandId](#get-voucher-by-brandId)
     - [Update VOUCHER](#update-voucher)
     - [Delete VOUCHER](#delete-voucher)
 3. [TRANSACTION](#transaction)
@@ -447,6 +448,30 @@ link : https://app.eraser.io/workspace/ifQtfTojjLpuKxnTP5cm?origin=share
 
 - Endpoint: GET /voucher/{id}
 - Description: get single data
+
+  Response Body :
+  - Status Code : 200
+
+  ```bash
+    {
+       message: "1 Data berhasil ditemukan",
+       data:{}
+    }
+  ```
+
+  Error Response :
+  - Status Code : 404
+
+  ```bash
+    {
+         message: "Data tidak ditemukan"
+    }
+  ```
+
+### Get Voucher By BrandId
+
+- Endpoint: GET /voucher/brand?id={brand_id}
+- Description: get single data voucher by brandId
 
   Response Body :
   - Status Code : 200
