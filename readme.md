@@ -4,6 +4,12 @@
 This is a simple Voucher API designed for a backend developer test. 
 The API is built using Express for the server framework and MongoDB for data storage.
 
+## LINK API 
+https://illegal-vinita-twinsapp-4a7162f6.koyeb.app/users
+https://illegal-vinita-twinsapp-4a7162f6.koyeb.app/voucher
+https://illegal-vinita-twinsapp-4a7162f6.koyeb.app/brand
+https://illegal-vinita-twinsapp-4a7162f6.koyeb.app/transaction/redemption
+
 ## ERD Diagram
 link : https://app.eraser.io/workspace/ifQtfTojjLpuKxnTP5cm?origin=share
 
