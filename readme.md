@@ -612,7 +612,7 @@ link : https://app.eraser.io/workspace/ifQtfTojjLpuKxnTP5cm?origin=share
 
   ```bash
     {
-     "name":""
+     "amount":""
     }
 
   ```
